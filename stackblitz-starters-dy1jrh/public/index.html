@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meram Belediyesi</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://www.meram.bel.tr/upload/medya/MUHTAR_3.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin-top: 0;
+    }
+
+    nav button {
+      margin-right: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    nav button:focus {
+      outline: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+    }
+
+    .contact-info,
+    .help-request {
+      flex: 1;
+    }
+
+    .contact-info h2,
+    .help-request h2 {
+      margin-top: 0;
+    }
+
+    .contact-info p {
+      margin-top: 0;
+    }
+
+    .contact-info p,
+    .help-request input,
+    .help-request textarea {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .help-request textarea {
+      height: 100px;
+    }
+
+    footer img {
+      width: 100px;
+      margin-top: 20px;
+    }
+
+    #content {
+      margin-bottom: 200px; /* Adjusted margin for footer */
+    }
+
+    .project img,
+    .news img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .social-media-icons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+
+    .social-media-icons img {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Meram Belediyesi</h1>
+      <nav>
+        <button onclick="location.reload()">Ana Sayfa</button>
+        <button onclick="showProjects()">Yapılan Projeler</button>
+        <button onclick="showNews()">Haber ve Duyurular</button>
+        <button onclick="showEBelediye()">E-belediye</button>
+      </nav>
+    </header>
+    <input type="text" placeholder="Şimdi Ara" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+    <div id="content"></div>
+  </div>
+  <footer>
+    <img src="https://www.meram.bel.tr/assets/img/footerlogo.svg" alt="Footer Logo">
+    <div class="contact-info" style="display: none;">
+      <h2>İletişim Bilgileri</h2>
+      <p>Meram Belediyesi Hizmet Binası <br> Adres: Yenişehir Mah. Azerbaycan Cad. No: 5 <br> 42010 Meram / KONYA <br> Telefon: 0332 320 10 00 <br> Eposta: bizimmeram@meram.bel.tr <br> Kep Adresi: merambelediyesi@hs01.kep.tr <br> E Tebligat: 35846-96487-38597 <br> IBAN: TR33 0001 2009 5240 0007 0000 02</p>
+    </div>
+    <div class="help-request" style="display: none;">
+      <h2>Yardım Ve İstek</h2>
+      <input type="email" placeholder="E-posta adresiniz">
+      <textarea placeholder="Mesajınız"></textarea>
+      <button>Gönder</button>
+    </div>
+  </footer>
+  <div class="social-media-icons">
+    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram">
+    <img src="https://pbs.twimg.com/media/F3gQmG8WoAAtCTC.jpg:large" alt="Twitter">
+  </div>
+  <script>
+    function showProjects() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h2>Yapılan Projeler</h2>
+        <div class="project">
+          <img src="https://www.meram.bel.tr/upload/medya/8_15.jpg" alt="Meram Yaka Sosyal Tesisi">
+          <p>Meram Yaka Sosyal Tesisi</p>
+        </div>
+        <div class="project">
+          <img src="https://www.meram.bel.tr/upload/medya/1_89.jpg" alt="Meram Yeni Proje">
+          <p>Meram Yeni Proje</p>
+        </div>
+        <div class="project">
+          <img src="https://www.meram.bel.tr/upload/medya/berlika3.jpg" alt="Berlika Trafik Eğitim Parkı">
+          <p>Berlika Trafik Eğitim Parkı</p>
+        </div>
+        <div class="project">
+          <img src="https://www.meram.bel.tr/upload/medya/01-1.jpg" alt="Şükran Mah. Kafeterya ve Çevre Düzenlemesi">
+          <p>Şükran Mah. Kafeterya ve Çevre Düzenlemesi</p>
+        </div>
+      `;
+      toggleContactAndHelp(false);
+    }
+
+    function showNews() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h2>Haber ve Duyurular</h2>
+        <div class="news">
+          <img src="https://www.meram.bel.tr/upload/medya/6_11.jpeg" alt="MERAM BELEDİYESPOR KICK BOKS RİNGLERİNDE RÜZGAR GİBİ ESTİ">
+          <p>MERAM BELEDİYESPOR KICK BOKS RİNGLERİNDE RÜZGAR GİBİ ESTİ</p>
+          <p>Meram Belediyespor, bir ulusal turnuvada daha rüzgar gibi esti. Kulüp sporcuları, 22-29 Ocak 2024 tarihleri arasında Antalya’da gerçekleştirilen Kick Boks Türkiye Şampiyonası’nda 4’ü altın, 3’ü gümüş, 1’i bronz olmak üzere toplamda kazandığı 8 madalya ile bir büyük başarının daha altına imza attı.</p>
+        </div>
+        <div class="news">
+          <img src="https://www.meram.bel.tr/upload/medya/6_206.jpg" alt="MERAM 6 ŞUBAT DEPREMLERİNDE HAYATLARINI KAYBEDENLERİ UNUTMADI">
+          <p>MERAM 6 ŞUBAT DEPREMLERİNDE HAYATLARINI KAYBEDENLERİ UNUTMADI</p>
+          <p>Meram, Kahramanmaraş merkezli 6 Şubat Depremlerinde hayatını kaybedenleri dualarla andı. Başkan Mustafa Kavuş’un da katıldığı programın sonunda vatandaşlara Meram Belediyesi tarafından helva ikramında bulunuldu.</p>
+        </div>
+      `;
+      toggleContactAndHelp(false);
+    }
+
+    function showEBelediye() {
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        <h2>E-belediye</h2>
+        <input type="text" placeholder="Şimdi Ara" style="width: 100%; padding: 10px; margin-bottom: 20px;">
+        <div class="contact-info">
+          <h2>İletişim Bilgileri</h2>
+          <p>Meram Belediyesi Hizmet Binası <br> Adres: Yenişehir Mah. Azerbaycan Cad. No: 5 <br> 42010 Meram / KONYA <br> Telefon: 0332 320 10 00 <br> Eposta: bizimmeram@meram.bel.tr <br> Kep Adresi: merambelediyesi@hs01.kep.tr <br> E Tebligat: 35846-96487-38597 <br> IBAN: TR33 0001 2009 5240 0007 0000 02</p>
+        </div>
+        <div class="help-request">
+          <h2>Yardım Ve İstek</h2>
+          <input type="email" placeholder="E-posta adresiniz">
+          <textarea placeholder="Mesajınız"></textarea>
+          <button>Gönder</button>
+        </div>
+      `;
+      toggleContactAndHelp(true);
+    }
+
+    function toggleContactAndHelp(show) {
+      const contactInfo = document.querySelector('.contact-info');
+      const helpRequest = document.querySelector('.help-request');
+      if (show) {
+        contactInfo.style.display = 'block';
+        helpRequest.style.display = 'block';
+      } else {
+        contactInfo.style.display = 'none';
+        helpRequest.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
